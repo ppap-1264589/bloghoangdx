@@ -2,6 +2,8 @@
 layout: default
 title: Bảng băm
 use_math: true
+nav_title: "Bảng băm"
+nav_order: 2
 ---
 # Bài toán
 

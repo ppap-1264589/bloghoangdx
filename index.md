@@ -12,10 +12,7 @@ use_math: true
 
 # Các chủ đề
 
-[Bảng băm](algorithms/hashing/)
-
-[Ứng dụng Segment Tree](algorithms/segment_tree/)
-
-[Cầu và Khớp](algorithms/bridges/)
-
-[Luồng cực đại](algorithms/maxflow/)
+{% assign navpages = site.pages | where_exp: "p", "p.nav_title" | sort: "nav_order" %}
+{% for p in navpages %}
+[{{ p.nav_title }}]({{ p.url | relative_url }})
+{% endfor %}

@@ -2,6 +2,8 @@
 layout: default
 title: Khớp cầu
 use_math: true
+nav_title: "Khớp cầu"
+nav_order: 1
 ---
 
 # Hiểu hơn về thuật toán Tarjan

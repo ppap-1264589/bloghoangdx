@@ -2,6 +2,8 @@
 layout: default
 title: Segment Tree
 use_math: true
+nav_title: "Segment Tree"
+nav_order: 5
 ---
 # Bài toán
 

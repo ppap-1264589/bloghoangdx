@@ -2,6 +2,8 @@
 layout: default
 title: Maxflow
 use_math: true
+nav_title: "Maxflow"
+nav_order: 3
 ---
 # Bài toán
 
