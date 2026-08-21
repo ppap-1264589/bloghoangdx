@@ -131,48 +131,29 @@ Chả hạn, với $P=41$, ta không biết rằng liệu $g=7$ có phải là c
  
 ---
  
-**procedure** $\text{FindPrimitiveRoot}(P)$:
- 
-&emsp;1.&ensp;$N \leftarrow P - 1$
-
-&emsp;2.&ensp;$C \leftarrow \text{FactorizeDistinctPrimes}(N)$ &emsp;*(tập ước nguyên tố phân biệt của $N$)*
- 
-&emsp;3.&ensp;**for** $g \leftarrow 2, 3, 4, \dots, P-1$ **do**
- 
-&emsp;&emsp;4.&ensp;$\textit{isPrimitive} \leftarrow \text{true}$
- 
-&emsp;&emsp;5.&ensp;**for each** $p_i \in C$ **do**
- 
-&emsp;&emsp;&emsp;6.&ensp;**if** $g^{\,N/p_i} \bmod P = 1$ **then**
- 
-&emsp;&emsp;&emsp;&emsp;7.&ensp;$\textit{isPrimitive} \leftarrow \text{false}$
- 
-&emsp;&emsp;&emsp;&emsp;8.&ensp;**break**
- 
-&emsp;&emsp;9.&ensp;**if** $\textit{isPrimitive}$ **then**
- 
+**procedure** $\text{FindPrimitiveRoot}(P)$:  
+&emsp;1.&ensp;$N \leftarrow P - 1$  
+&emsp;2.&ensp;$C \leftarrow \text{FactorizeDistinctPrimes}(N)$ &emsp;*(tập ước nguyên tố phân biệt của $N$)*  
+&emsp;3.&ensp;**for** $g \leftarrow 2, 3, 4, \dots, P-1$ **do**  
+&emsp;&emsp;4.&ensp;$\textit{isPrimitive} \leftarrow \text{true}$  
+&emsp;&emsp;5.&ensp;**for each** $p_i \in C$ **do**  
+&emsp;&emsp;&emsp;6.&ensp;**if** $g^{\,N/p_i} \bmod P = 1$ **then**  
+&emsp;&emsp;&emsp;&emsp;7.&ensp;$\textit{isPrimitive} \leftarrow \text{false}$  
+&emsp;&emsp;&emsp;&emsp;8.&ensp;**break**  
+&emsp;&emsp;9.&ensp;**if** $\textit{isPrimitive}$ **then**  
 &emsp;&emsp;&emsp;10.&ensp;**return** $g$
- 
+
 ---
- 
-**procedure** $\text{FactorizeDistinctPrimes}(N)$:
- 
-&emsp;1.&ensp;$C \leftarrow \varnothing$
- 
-&emsp;2.&ensp;$d \leftarrow 2$
- 
-&emsp;3.&ensp;**while** $d \times d \le N$ **do**
- 
-&emsp;&emsp;4.&ensp;**if** $N \bmod d = 0$ **then**
- 
-&emsp;&emsp;&emsp;5.&ensp;$C \leftarrow C \cup \{d\}$
- 
-&emsp;&emsp;&emsp;6.&ensp;**while** $N \bmod d = 0$ **do** $N \leftarrow N / d$
- 
-&emsp;&emsp;7.&ensp;$d \leftarrow d + 1$
- 
-&emsp;8.&ensp;**if** $N > 1$ **then** $C \leftarrow C \cup \{N\}$ &emsp;*(thừa số nguyên tố lớn còn sót lại)*
- 
+
+**procedure** $\text{FactorizeDistinctPrimes}(N)$:  
+&emsp;1.&ensp;$C \leftarrow \varnothing$  
+&emsp;2.&ensp;$d \leftarrow 2$  
+&emsp;3.&ensp;**while** $d \times d \le N$ **do**  
+&emsp;&emsp;4.&ensp;**if** $N \bmod d = 0$ **then**  
+&emsp;&emsp;&emsp;5.&ensp;$C \leftarrow C \cup \{d\}$  
+&emsp;&emsp;&emsp;6.&ensp;**while** $N \bmod d = 0$ **do** $N \leftarrow N / d$  
+&emsp;7.&ensp;$d \leftarrow d + 1$  
+&emsp;8.&ensp;**if** $N > 1$ **then** $C \leftarrow C \cup \{N\}$ &emsp;*(thừa số nguyên tố lớn còn sót lại)*  
 &emsp;9.&ensp;**return** $C$
  
 ---
@@ -369,8 +350,8 @@ Nói cách khác: **mọi** ước thực sự của $P-1$, dù nhỏ hay lớn,
 
 | Tập kiểm tra | Bẫy được ord(g) nào? | Đủ để suy ra ord(g) = P−1? |
 |---|---|---|
-| $\{p_i\}$ | Chỉ $1$ và $p_i$ | ❌ Không |
-| $\{(P-1)/p_i\}$ | Mọi ước thực sự của $P-1$ | ✅ Có |
+| $\\{p_i\\}$ | Chỉ $1$ và $p_i$ | ❌ Không |
+| $\\{(P-1)/p_i\\}$ | Mọi ước thực sự của $P-1$ | ✅ Có |
 
 **Tóm tắt suy luận:**
 
@@ -436,7 +417,7 @@ Với $n=18$:
 
 $$\varphi(18) = 6 \quad\Rightarrow\quad \varphi(\varphi(18)) = \varphi(6) = 2$$
 
-Kiểm tra trực tiếp: $(\mathbb{Z}/18\mathbb{Z})^{\ast} = \\{1,5,7,11,13,17\\}$. Tính tay sẽ thấy $\text{ord}(5)=6$ và $\text{ord}(11)=6$ — đúng bằng bậc nhóm $\varphi(18)=6$, nên $5$ và $11$ là hai căn nguyên thủy duy nhất.
+Kiểm tra trực tiếp: $(\mathbb{Z}/18\mathbb{Z})^{\ast} = \{1,5,7,11,13,17\}$. Tính tay sẽ thấy $\text{ord}(5)=6$ và $\text{ord}(11)=6$ — đúng bằng bậc nhóm $\varphi(18)=6$, nên $5$ và $11$ là hai căn nguyên thủy duy nhất.
 
 **Trường hợp riêng $n=P$ nguyên tố:** vì mọi số từ $1$ đến $P-1$ đều coprime với $P$, nên $\varphi(P) = P-1$. Thay vào công thức tổng quát:
 
