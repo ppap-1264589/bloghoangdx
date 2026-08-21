@@ -4,6 +4,7 @@ title: Khớp cầu
 use_math: true
 nav_title: "Khớp cầu"
 nav_order: 1
+nav_group: "Basic"
 ---
 
 # Hiểu hơn về thuật toán Tarjan
@@ -14,20 +15,20 @@ nav_order: 1
 - [Bài toán](#bài-toán)
 - [Code](#code)
 - [Các chú ý](#các-chú-ý)
-  - [Chú ý 1:](#chú-ý-1)
-  - [Chú ý 2:](#chú-ý-2)
-    - [Lý do:](#lý-do)
-  - [Chú ý 3:](#chú-ý-3)
-    - [Lý do:](#lý-do-1)
-      - [Ví dụ 1:](#ví-dụ-1)
-      - [Ví dụ 2:](#ví-dụ-2)
-      - [Ví dụ 3:](#ví-dụ-3)
-      - [Ví dụ 4:](#ví-dụ-4)
+  - [Chú ý 1](#chú-ý-1)
+  - [Chú ý 2](#chú-ý-2)
+    - [Lý do](#lý-do)
+  - [Chú ý 3](#chú-ý-3)
+    - [Lý do](#lý-do-1)
+      - [Ví dụ 1](#ví-dụ-1)
+      - [Ví dụ 2](#ví-dụ-2)
+      - [Ví dụ 3](#ví-dụ-3)
+      - [Ví dụ 4](#ví-dụ-4)
       - [Nói tóm tại](#nói-tóm-tại)
-  - [Chú ý 4: (Xét thuật toán chuẩn)](#chú-ý-4-xét-thuật-toán-chuẩn)
-  - [Chú ý 5:](#chú-ý-5)
-  - [Chú ý 6:](#chú-ý-6)
-  - [Chú ý 7:](#chú-ý-7)
+  - [Chú ý 4 (Xét thuật toán chuẩn)](#chú-ý-4-xét-thuật-toán-chuẩn)
+  - [Chú ý 5](#chú-ý-5)
+  - [Chú ý 6](#chú-ý-6)
+  - [Chú ý 7](#chú-ý-7)
     - [Lý do](#lý-do-2)
 
 
@@ -128,7 +129,7 @@ signed main (){
 
 # Các chú ý
 
-## Chú ý 1:
+## Chú ý 1
 Cùng một cạnh ngược, $low[u] = min(low[u], num[v])$ sẽ được thực hiện đến hai lần
 
 ![Minh họa](ViDu_CanhNguocThamHaiLan.png)
@@ -160,7 +161,7 @@ $1.$ Việc một câu lệnh phải thực hiện hai lần như vậy không �
 
 $2.$ $low[u]$ vẫn chỉ được update khi đang xét cạnh ngược lần thứ nhất.
 
-## Chú ý 2:
+## Chú ý 2
 Giả sử ta để điều kiện kiểm tra xem $(u, v)$ có phải cạnh cầu hay không ra bên ngoài điều kiện $\text{if (num[v] != 0)}$ như sau:
 ```cpp
 for (int v : a[u]){
@@ -179,7 +180,7 @@ for (int v : a[u]){
 
 Thì kết quả của bài toán tìm cầu vẫn đúng
 
-### Lý do:
+### Lý do
 
 Việc đặt điều kiện kiểm tra cạnh cầu ra bên ngoài điều kiện $\text{if (num[v] != 0)}$, tương đương với việc ta xét cả hai trường hợp cung xuất hiện tại đỉnh $u$:
 
@@ -193,7 +194,7 @@ Do đó, việc đặt điều kiện kiểm tra cung xuôi $(u - v)$ là cạnh
 Chỉ là mình phải check cả cung xuôi và cung ngược, check nhiều trường hợp thừa thãi hơn thôi
 
 
-## Chú ý 3:
+## Chú ý 3
 
 Giả sử cho phép $low[u] = min(low[u], low[v])$ trong cả trường hợp đỉnh $v$ đi từ $u$ là một đỉnh đã thăm và chưa thăm như sau:
 
@@ -215,7 +216,7 @@ for (int v : a[u]){
 
 Thì kết quả của bài toán tìm cầu vẫn đúng
 
-### Lý do:
+### Lý do
 
 Theo định nghĩa chuẩn về $low[u]$, thì $low[u]$ là thời gian thăm của đỉnh có thứ tự thăm sớm nhất khi đi từ một đỉnh nào đó thuộc cây con gốc $u$ (bao gồm cả đỉnh $u$) qua không quá $1$ cạnh ngược
 
@@ -229,7 +230,7 @@ Mục đích của chúng ta là làm rõ tại sao nó vẫn đúng.
 
 Trước hết, chúng ta quan sát một số ví dụ sau khi cài thuật toán "lệch chuẩn" để thấy rõ hơn ý nghĩa của $low[u]$.
 
-#### Ví dụ 1:
+#### Ví dụ 1
 
 ![Minh họa](ViDu_QuaMotCanhNguoc.png)
 
@@ -239,7 +240,7 @@ Nhận xét:
 1. Từ cây con gốc $6$ có một đỉnh đi qua $1$ cạnh ngược để đến được đỉnh có $num = 4$. (Đỉnh này chính là đỉnh $6$)
 2. Từ cây con gốc $4$ cũng có một đỉnh đi qua $1$ cạnh ngược để đến được đỉnh có $num = 4$. (Đỉnh đó cũng chính là đỉnh $6$ luôn)
 
-#### Ví dụ 2:
+#### Ví dụ 2
 
 ![Minh họa](ViDu_QuaHaiCanhNguoc.png)
 
@@ -249,7 +250,7 @@ Nhận xét:
 1. Từ cây con gốc $6$ có một đỉnh đi qua $2$ cạnh ngược để đến được đỉnh có $num = 1$. (Đỉnh này chính là đỉnh $6$)
 2. Từ cây con gốc $4$ có một đỉnh đi qua $2$ cạnh ngược để đến được đỉnh có $num = 1$. (Đỉnh này cũng chính là đỉnh $6$ luôn)
 
-#### Ví dụ 3:
+#### Ví dụ 3
 
 ![Minh họa](ViDu_VoTinhDung.png)
 
@@ -257,7 +258,7 @@ Không phải lúc nào những đỉnh có $num \neq 0$ cũng bị thăm trư�
 
 Trong ví dụ này, những đỉnh có $num = 0$ được thăm trước, và nó vô tình làm thuật toán thực hiện giống như thuật toán gốc dù cách cài đặt đang lệch chuẩn.
 
-#### Ví dụ 4:
+#### Ví dụ 4
 
 ![Minh họa](ViDu_QuaBaCanhNguoc.png)
 
@@ -298,7 +299,7 @@ Nếu trong cây con gốc $v$ có ít nhất một đỉnh có thể vượt qu
 
 Do đó, cách cài đặt "cố tình lệch chuẩn" này vẫn tìm được đúng các cạnh cầu.
 
-## Chú ý 4: (Xét thuật toán chuẩn)
+## Chú ý 4 (Xét thuật toán chuẩn)
 
 Trong thuật toán chuẩn:
 
@@ -308,7 +309,7 @@ $$ low[u] \in \{num[X] \; | \; X \in P_u \} $$
 
 Đây là một hệ quả của việc thiết kế cây DFS. Do cây DFS không có cạnh chéo, nên không bao giờ $low[u]$ lại được cập nhật từ $num[v]$ với $v$ là một đỉnh không nằm trên cây con gốc $u$ cả.
 
-## Chú ý 5:
+## Chú ý 5
 
 Giả sử cho phép $low[u] = min(low[u], num[v])$ trong cả trường hợp đỉnh v đi từ u là một đỉnh đã thăm và chưa thăm như sau:
 
@@ -333,7 +334,7 @@ Lý do đơn giản là việc cài đặt như vậy sẽ khiến mảng $low[]
 
 $low[u]$ lúc này chỉ cho biết từ đỉnh $u$ (không cần biết trong cây con gốc $u$) có thể đi qua không quá một cạnh ngược lên một đỉnh $v$ nào đó hay không. $low[u]$ không khai thác được thông tin liên quan về cây con gốc $u$ của chính đỉnh $u$. 
 
-## Chú ý 6:
+## Chú ý 6
 
 Mối quan hệ giữa $low[]$ và $num[]$ trên một cạnh ngược trong lần duyệt thứ hai
 
@@ -349,7 +350,7 @@ Bất đẳng thức này nói chung là không đúng khi $u-v$ là một cạn
 
 Chả hạn khi $u-v$ là một cạnh xuôi: nếu $v$ và cây con của $v$ không có cạnh ngược đến $u$ hoặc tổ tiên của $u$, thì $low[v] = num[v] > num[u]$
 
-## Chú ý 7:
+## Chú ý 7
 
 Giả sử ta đặt điều kiện kiểm tra thành phần cắt ra bên ngoài điều kiện $(!num[v])$ như sau:
 
@@ -395,6 +396,3 @@ Thuật toán "lệch chuẩn" này sẽ hiểu là đỉnh $1$ và đỉnh $2$ 
 Mặc dù, đồ thị này không hề có đỉnh khớp nào cả.
 
 Như vậy, việc đếm số thành phần cắt chỉ nên thực hiện khi ta đang xét trên cạnh xuôi của cây DFS. Xét trên cả cạnh ngược sẽ đếm thừa thông tin mà đúng ra cạnh xuôi đã cung cấp đủ.
-
-
-[Quay lại trang chủ](../../)

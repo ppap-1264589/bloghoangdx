@@ -8,9 +8,5 @@ kramdown:
   input: GFM
   hard_wrap: false
 
-collections:
-  algorithms:
-    output: true
-
 plugins:
   - jekyll-redirect-from

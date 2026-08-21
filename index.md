@@ -13,6 +13,12 @@ use_math: true
 # Các chủ đề
 
 {% assign navpages = site.pages | where_exp: "p", "p.nav_title" | sort: "nav_order" %}
-{% for p in navpages %}
-[{{ p.nav_title }}]({{ p.url | relative_url }})
+{% assign grouped = navpages | group_by: "nav_group" %}
+{% for group in grouped %}
+{% if group.name != nil %}
+## {{ group.name }}
+{% endif %}
+{% for p in group.items %}
+- [{{ p.nav_title }}]({{ p.url | relative_url }})
+{% endfor %}
 {% endfor %}

@@ -43,6 +43,11 @@
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
         {{ content }}
+
+        {% unless page.url == "/" or page.url == "/index.html" %}
+        <hr>
+        <p><a href="{{ '/' | relative_url }}">← Quay lại trang chủ</a></p>
+        {% endunless %}
       </section>
     </div>
 

@@ -3,7 +3,8 @@ layout: default
 title: Segment Tree
 use_math: true
 nav_title: "Segment Tree"
-nav_order: 5
+nav_order: 4
+nav_group: "Basic"
 ---
 # Bài toán
 
@@ -201,7 +202,6 @@ signed main(){
     cout << res;
 }
 ```
-[Quay lại trang chủ](../../)
 
 ### Bonus
 

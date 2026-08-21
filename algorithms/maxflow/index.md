@@ -4,6 +4,7 @@ title: Maxflow
 use_math: true
 nav_title: "Maxflow"
 nav_order: 3
+nav_group: "Basic"
 ---
 # Bài toán
 
@@ -312,6 +313,3 @@ void find_flow_to_sink(){
 
 //Some nodes still have excess, but that's not problem to find max flow
 ```
-
-
-[Quay lại trang chủ](../../)
