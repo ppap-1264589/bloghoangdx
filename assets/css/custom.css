@@ -16,3 +16,14 @@
     font-size: 9px;
   }
 }
+
+/* Xóa margin dư khi có list lồng nhau, tránh mục sau bị đẩy xa */
+li ul,
+li ol {
+  margin-bottom: 0;
+  margin-top: 0.2em;
+}
+
+li {
+  margin-bottom: 0.2em;
+}

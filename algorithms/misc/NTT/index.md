@@ -9,31 +9,29 @@ nav_group: "Misc"
 
 # 2 câu hỏi về thuật toán tìm Primitive Root modulo P
 
-
-- [2 câu hỏi về thuật toán tìm Primitive Root modulo P](#2-câu-hỏi-về-thuật-toán-tìm-primitive-root-modulo-p)
-  - [1. Định nghĩa và ký hiệu](#1-định-nghĩa-và-ký-hiệu)
-    - [1.1. Bậc của một số nguyên theo modulo $P$](#11-bậc-của-một-số-nguyên-theo-modulo-p)
-    - [1.2. Căn nguyên thủy](#12-căn-nguyên-thủy)
-    - [1.3. Ký hiệu chung](#13-ký-hiệu-chung)
-  - [2. Vấn đề đặt ra](#2-vấn-đề-đặt-ra)
-  - [3. Thuật toán tìm căn nguyên thủy modulo $P$](#3-thuật-toán-tìm-căn-nguyên-thủy-modulo-p)
-    - [3.1. Mô tả thuật toán](#31-mô-tả-thuật-toán)
-    - [3.2. Mã giả](#32-mã-giả)
-  - [4. Hai câu hỏi nảy sinh khi phân tích thuật toán](#4-hai-câu-hỏi-nảy-sinh-khi-phân-tích-thuật-toán)
-  - [5. Các bổ đề](#5-các-bổ-đề)
-    - [5.1. Bổ đề 1](#51-bổ-đề-1)
-      - [Hệ quả 1](#hệ-quả-1)
-    - [5.2. Bổ đề 2](#52-bổ-đề-2)
-  - [6. Định lý chính](#6-định-lý-chính)
-  - [7. Trả lời câu hỏi thứ nhất: vì sao chỉ cần xét các $p\_i \\in C$?](#7-trả-lời-câu-hỏi-thứ-nhất-vì-sao-chỉ-cần-xét-các-p_i-in-c)
-  - [8. Trả lời câu hỏi thứ hai: vì sao là $g^{(P-1)/p\_i}$ chứ không phải $g^{p\_i}$?](#8-trả-lời-câu-hỏi-thứ-hai-vì-sao-là-gp-1p_i-chứ-không-phải-gp_i)
-    - [8.1. Test đang thực sự kiểm tra điều gì?](#81-test-đang-thực-sự-kiểm-tra-điều-gì)
-    - [8.2. Vì sao ${p\_i}$ không phải là "bẫy" tốt](#82-vì-sao-p_i-không-phải-là-bẫy-tốt)
-    - [8.3. Vì sao ${(P-1)/p\_i}$ lại là "bẫy" đúng](#83-vì-sao-p-1p_i-lại-là-bẫy-đúng)
-  - [9. Brute force đến giá trị $g$ nào thì dừng?](#9-brute-force-đến-giá-trị-g-nào-thì-dừng)
-  - [10. Một vài fun fact](#10-một-vài-fun-fact)
-    - [10.1. Số lượng căn nguyên thủy của một nhóm cyclic](#101-số-lượng-căn-nguyên-thủy-của-một-nhóm-cyclic)
-    - [10.2. Không phải số nào cũng có căn nguyên thủy](#102-không-phải-số-nào-cũng-có-căn-nguyên-thủy)
+- [1. Định nghĩa và ký hiệu](#1-định-nghĩa-và-ký-hiệu)
+  - [1.1. Bậc của một số nguyên theo modulo $P$](#11-bậc-của-một-số-nguyên-theo-modulo-p)
+  - [1.2. Căn nguyên thủy](#12-căn-nguyên-thủy)
+  - [1.3. Ký hiệu chung](#13-ký-hiệu-chung)
+- [2. Vấn đề đặt ra](#2-vấn-đề-đặt-ra)
+- [3. Thuật toán tìm căn nguyên thủy modulo $P$](#3-thuật-toán-tìm-căn-nguyên-thủy-modulo-p)
+  - [3.1. Mô tả thuật toán](#31-mô-tả-thuật-toán)
+  - [3.2. Mã giả](#32-mã-giả)
+- [4. Hai câu hỏi nảy sinh khi phân tích thuật toán](#4-hai-câu-hỏi-nảy-sinh-khi-phân-tích-thuật-toán)
+- [5. Các bổ đề](#5-các-bổ-đề)
+  - [5.1. Bổ đề 1](#51-bổ-đề-1)
+    - [Hệ quả 1](#hệ-quả-1)
+  - [5.2. Bổ đề 2](#52-bổ-đề-2)
+- [6. Định lý chính](#6-định-lý-chính)
+- [7. Trả lời câu hỏi thứ nhất: vì sao chỉ cần xét các $p\_i \\in C$?](#7-trả-lời-câu-hỏi-thứ-nhất-vì-sao-chỉ-cần-xét-các-p_i-in-c)
+- [8. Trả lời câu hỏi thứ hai: vì sao là $g^{(P-1)/p\_i}$ chứ không phải $g^{p\_i}$?](#8-trả-lời-câu-hỏi-thứ-hai-vì-sao-là-gp-1p_i-chứ-không-phải-gp_i)
+  - [8.1. Test đang thực sự kiểm tra điều gì?](#81-test-đang-thực-sự-kiểm-tra-điều-gì)
+  - [8.2. Vì sao ${p\_i}$ không phải là "bẫy" tốt](#82-vì-sao-p_i-không-phải-là-bẫy-tốt)
+  - [8.3. Vì sao ${(P-1)/p\_i}$ lại là "bẫy" đúng](#83-vì-sao-p-1p_i-lại-là-bẫy-đúng)
+- [9. Brute force đến giá trị $g$ nào thì dừng?](#9-brute-force-đến-giá-trị-g-nào-thì-dừng)
+- [10. Một vài fun fact](#10-một-vài-fun-fact)
+  - [10.1. Số lượng căn nguyên thủy của một nhóm cyclic](#101-số-lượng-căn-nguyên-thủy-của-một-nhóm-cyclic)
+  - [10.2. Không phải modulo nào cũng có căn nguyên thủy](#102-không-phải-modulo-nào-cũng-có-căn-nguyên-thủy)
 
 
 ## 1. Định nghĩa và ký hiệu
@@ -206,7 +204,9 @@ $$g^m = (g^d)^t \cdot g^r = 1^t \cdot g^r = g^r \equiv 1 \pmod P$$
 
 Nhưng $d$ được định nghĩa là số nguyên dương **nhỏ nhất** thỏa $g^d = 1$, mà lại tìm được $r < d$ cũng thỏa $g^r = 1$ — mâu thuẫn. Vậy giả sử $d \nmid m$ là sai. $\blacksquare$
 
-**Ví dụ minh họa:** Với $P=41$, lấy $g=2$. Tính tay ta được $\text{ord}(2) = 20$ (không có số mũ dương nào nhỏ hơn $20$ cho $2^{\bullet} \equiv 1$).
+**Ví dụ minh họa:** 
+
+Với $P=41$, lấy $g=2$. Tính tay ta được $\text{ord}(2) = 20$ (không có số mũ dương nào nhỏ hơn $20$ cho $2^{\bullet} \equiv 1$).
 
 - Thử $m = 40$: vì $20 \mid 40$ → Bổ đề 1 dự đoán $2^{40} \equiv 1 \pmod{41}$ ✓. 
 - Thử $m = 8$: vì $20 \nmid 8$ → Bổ đề 1 dự đoán $2^8 \not\equiv 1$. 
@@ -245,7 +245,9 @@ Vậy dù $g=3$ (không phải căn nguyên thủy) hay $g=6$ (là căn nguyên 
 
 Vậy $v$ là ước của $N/q$, với $q \in C$. $\blacksquare$
 
-**Ví dụ minh họa:** Đặt $N = P-1 = 40$, $C=\\{2,5\\}$.
+**Ví dụ minh họa:** 
+
+Đặt $N = P-1 = 40$, $C=\\{2,5\\}$.
  
 *Lấy $v = 8$, một ước thực sự của $40$.*
 - Theo Bổ đề 2, phải tồn tại $p_i \in \\{2,5\\}$ sao cho $v \mid N/p_i$.
@@ -271,15 +273,15 @@ Theo Bổ đề 1: $d \nmid u \Rightarrow g^u \bmod P \neq 1$, tức $g^{(P-1)/p
 
 **($\Leftarrow$)** Phản chứng: giả sử $g^{(P-1)/p_i} \bmod P \neq 1$ với mọi $p_i \in C$, nhưng $d \neq P-1$.
 
-- Vì $d \mid (P-1)$ (Hệ quả 1) và $d \neq P-1$ → $d$ là ước thực sự của $P-1$
+- Vì $d \mid (P-1)$ (Theo Hệ quả 1) và $d \neq P-1$ → $d$ là ước thực sự của $P-1$
 - Theo Bổ đề 2: tồn tại $q \in C$ sao cho $d \mid (P-1)/q$
 - Theo Bổ đề 1: $\Rightarrow g^{(P-1)/q} \equiv 1 \pmod P$ — **mâu thuẫn** với giả thiết
 
 Vậy giả sử sai, suy ra $d = P - 1$. ✓ $\blacksquare$
 
-**Ví dụ minh họa:** Với $P=41$, $C=\\{2,5\\}$, các điểm kiểm tra là $g^{(P-1)/2}$ và $g^{(P-1)/5}$ 
+**Ví dụ minh họa:** 
 
-(tức $g^{20}$ và $g^8$).
+Với $P=41$, $C=\\{2,5\\}$, các điểm kiểm tra là $g^{(P-1)/2}$ và $g^{(P-1)/5}$ (tức $g^{20}$ và $g^8$).
  
 *Thử $g = 2$ (kỳ vọng: bị loại).*
  
@@ -295,7 +297,7 @@ Vậy $2^8 \not\equiv 1$ — chưa bị loại. Tính tiếp:
  
 $$2^{20} = 2^8 \cdot 2^8 \cdot 2^4 \equiv 10 \cdot 10 \cdot 16 \equiv 1 \pmod{41}$$
  
-→ $2^{20} \equiv 1$ nên **$g=2$ bị loại**, chứng tỏ $2$ không phải là căn nguyên thủy modulo P $P$
+→ $2^{20} \equiv 1$ nên **$g=2$ bị loại**, chứng tỏ $2$ không phải là căn nguyên thủy modulo $P$
  
 *Thử $g = 6$ (kỳ vọng: được chấp nhận).*
  
@@ -319,7 +321,9 @@ $$g^{(P-1)/q} \equiv 1 \pmod{P}$$
 
 → Chỉ cần thử tất cả $p_i \in C$, **không cần** thử $p_i^2$, $p_i p_j$, ... Nếu không $p_i$ nào "lộ tẩy" → $d = P-1$.
 
-**Ví dụ minh họa:** $g=2$ có $\text{ord}(2) = 20$, một "khuyết tật" thực sự (khác $40$). Hệ quả 2 khẳng định có $q \in \\{2,5\\}$ làm lộ khuyết tật này. Thật vậy: với $q=2$: 
+**Ví dụ minh họa:** 
+
+$g=2$ có $\text{ord}(2) = 20$, một "khuyết tật" thực sự (khác $40$). Hệ quả 2 khẳng định có $q \in \\{2,5\\}$ làm lộ khuyết tật này. Thật vậy: với $q=2$: 
 
 $$2^{(40/2)} = 2^{20} \equiv 1 \pmod P$$ 
 
@@ -341,7 +345,9 @@ Nếu ta kiểm tra $g^{p_i} \overset{?}{\equiv} 1$, theo Bổ đề 1 điều n
 
 Trong khi đó, $\text{ord}(g)$ hoàn toàn có thể là một ước thực sự **lớn hơn nhiều**, ví dụ $p_i p_j$ hay $p_i^2$ — những giá trị này không chia hết $p_i$ theo nghĩa "$\text{ord}(g) \mid p_i$", nên test $g^{p_i}$ không bắt được chúng. Kết quả: $g$ có thể trượt qua mọi test $g^{p_i} \equiv 1$ nhưng vẫn không phải căn nguyên thủy.
 
-**Ví dụ minh họa:** Vẫn dùng $P=41$, $g=2$, $\text{ord}(2)=20$, $C=\\{2,5\\}$
+**Ví dụ minh họa:** 
+
+Vẫn dùng $P=41$, $g=2$, $\text{ord}(2)=20$, $C=\\{2,5\\}$
 
 Nếu lỡ dùng test sai $g^{p_i}$ thay vì $g^{(P-1)/p_i}$:
 
@@ -436,7 +442,7 @@ Kiểm tra trực tiếp: $(\mathbb{Z}/18\mathbb{Z})^{\ast} = \\{1,5,7,11,13,17\
 
 $$\varphi(\varphi(P)) = \varphi(P-1)$$
 
-### 10.2. Không phải số nào cũng có căn nguyên thủy
+### 10.2. Không phải modulo nào cũng có căn nguyên thủy
 
 Với modulo $n$ bất kỳ, nhóm $(\mathbb{Z}/n\mathbb{Z})^{\ast}$ **không phải lúc nào cũng cyclic**, tức không phải lúc nào cũng có generator, vì không phải nhóm nào cũng cyclic.
 
