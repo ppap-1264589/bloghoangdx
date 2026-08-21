@@ -324,7 +324,7 @@ Vậy chiến lược đúng là: liệt kê ra một tập số $X$ sao cho *b�
 
 Nếu ta kiểm tra $g^{p_i} \overset{?}{\equiv} 1$, theo Bổ đề 1 điều này tương đương với hỏi $\text{ord}(g) \mid p_i$ hay không. Vì $p_i$ là số nguyên tố, ước của nó chỉ có $1$ và $p_i$. Nói cách khác, phép kiểm tra này **chỉ bẫy được** hai giá trị rất nhỏ: $\text{ord}(g) = 1$ hoặc $\text{ord}(g) = p_i$.
 
-Trong khi đó, $\text{ord}(g)$ hoàn toàn có thể là một ước thực sự **lớn hơn nhiều**, ví dụ $p_i p_j$ hay $p_i^2$ — những giá trị này không chia hết $p_i$ theo nghĩa "$\text{ord}(g) \mid p_i$", nên test $g^{p_i}$ không bắt được chúng. Kết quả: $g$ có thể trượt qua mọi test $g^{p_i} \equiv 1$ nhưng vẫn không phải căn nguyên thủy.
+Trong khi đó, $\text{ord}(g)$ hoàn toàn có thể là một ước **lớn hơn nhiều**, ví dụ $p_i p_j$ hay $p_i^2$, nên test $g^{p_i}$ không bắt được chúng. Kết quả: $g$ có thể trượt qua mọi test $g^{p_i} \equiv 1$ nhưng vẫn không phải căn nguyên thủy.
 
 **Ví dụ minh họa:** 
 
@@ -349,7 +349,7 @@ Nói cách khác: **mọi** ước thực sự của $P-1$, dù nhỏ hay lớn,
 **Tóm gọn:**
 
 | Tập kiểm tra | Bẫy được ord(g) nào? | Đủ để suy ra ord(g) = P−1? |
-|---|---|---|
+|--------------| ---------------------|----------------------------|
 | $\\{p_i\\}$ | Chỉ $1$ và $p_i$ | ❌ Không |
 | $\\{(P-1)/p_i\\}$ | Mọi ước thực sự của $P-1$ | ✅ Có |
 
