@@ -7,6 +7,8 @@ nav_order: 10
 nav_group: "Misc"
 ---
 
+# 2 câu hỏi về thuật toán tìm Primitive Root modulo P
+
 - [2 câu hỏi về thuật toán tìm Primitive Root modulo P](#2-câu-hỏi-về-thuật-toán-tìm-primitive-root-modulo-p)
   - [1. Định nghĩa và ký hiệu](#1-định-nghĩa-và-ký-hiệu)
     - [1.1. Bậc của một số nguyên theo modulo $P$](#11-bậc-của-một-số-nguyên-theo-modulo-p)
@@ -33,8 +35,6 @@ nav_group: "Misc"
     - [9.1. Số lượng căn nguyên thủy của một nhóm cyclic](#91-số-lượng-căn-nguyên-thủy-của-một-nhóm-cyclic)
     - [9.2. Không phải số nào cũng có căn nguyên thủy — vì không phải nhóm nào cũng cyclic](#92-không-phải-số-nào-cũng-có-căn-nguyên-thủy--vì-không-phải-nhóm-nào-cũng-cyclic)
 
-
-# 2 câu hỏi về thuật toán tìm Primitive Root modulo P
 
 ## 1. Định nghĩa và ký hiệu
 
