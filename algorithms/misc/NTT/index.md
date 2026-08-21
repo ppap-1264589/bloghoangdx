@@ -79,7 +79,7 @@ Vì $\gcd(g, P) = 1$ nên $g$ khả nghịch modulo $P$, ta có thể nhân hai 
 
 $$g^{j-i} \equiv 1 \pmod{P}$$
 
-Đặt $m = j - i$. Do $0 < i < j \le P-2$, ta có
+Đặt $m = j - i$. Do $0 \le i < j \le P-2$, ta có
 
 $$0 < m \le P-2 < P - 1 = \text{ord}(g)$$
 
@@ -296,7 +296,7 @@ $$6^{20} = 6^8 \cdot 6^8 \cdot 6^4 \equiv 10 \cdot 10 \cdot 25 = 2500 \equiv 40 
 
 ## 7. Trả lời câu hỏi thứ nhất: vì sao chỉ cần xét các $p_i \in C$?
 
-Như vậy theo hệ quả của Định lý 1: Nếu $\text{ord}(g)$ có "khuyết tật" (tức $\text{ord}(g) < P-1$ và $g$ không phải là căn nguyên thủy), thì **chắc chắn** tồn tại ít nhất một ước nguyên tố $q \in C$ làm lộ khuyết tật đó:
+Như vậy theo định lý trên: Nếu $\text{ord}(g)$ có "khuyết tật" (tức $\text{ord}(g) < P-1$ và $g$ không phải là căn nguyên thủy), thì **chắc chắn** tồn tại ít nhất một ước nguyên tố $q \in C$ làm lộ khuyết tật đó:
 
 $$g^{(P-1)/q} \equiv 1 \pmod{P}$$
 
@@ -304,7 +304,7 @@ $$g^{(P-1)/q} \equiv 1 \pmod{P}$$
 
 **Ví dụ minh họa:** 
 
-$g=2$ có $\text{ord}(2) = 20$, một "khuyết tật" thực sự (khác $40$). Kết luận trên khẳng định rằng có tồn tại $q \in \\{2,5\\}$ làm lộ khuyết tật này. Thật vậy: với $q=2$: 
+$g=2$ có $\text{ord}(2) = 20$, một "khuyết tật" thực sự (khác $40$). Ta khẳng định rằng có tồn tại $q \in \\{2,5\\}$ làm lộ khuyết tật này. Thật vậy: với $q=2$: 
 
 $$2^{(40/2)} = 2^{20} \equiv 1 \pmod P$$ 
 
@@ -425,7 +425,7 @@ $$\varphi(\varphi(P)) = \varphi(P-1)$$
 
 ### 10.2. Không phải modulo nào cũng có căn nguyên thủy
 
-Với modulo $n$ bất kỳ, nhóm $(\mathbb{Z}/n\mathbb{Z})^{\ast}$ **không phải lúc nào cũng cyclic**, tức không phải lúc nào cũng có generator, vì không phải nhóm nào cũng cyclic.
+Với modulo $n$ bất kỳ, nhóm $(\mathbb{Z}/n\mathbb{Z})^{\ast}$ **không phải lúc nào cũng cyclic**, tức không phải lúc nào cũng có generator.
 
 Modulo $n$ có căn nguyên thủy **khi và chỉ khi** $n$ thuộc một trong các dạng:
 
@@ -433,4 +433,4 @@ $$n \in \{1,\ 2,\ 4,\ p^k,\ 2p^k\}$$
 
 với $p$ là số nguyên tố lẻ, $k \ge 1$.
 
-Đây cũng là lý do vì sao thuật toán NTT thường chọn modulo là số **nguyên tố** (hoặc dạng $2p^k$) để đảm bảo nhóm luôn cyclic và căn nguyên thủy luôn tồn tại.
+Rất nhiều số trong thực tế không nằm vào trong những dạng này, nên phải lựa chọn đúng modulo để có thể ứng dụng căn nguyên thủy một cách hợp lý.
