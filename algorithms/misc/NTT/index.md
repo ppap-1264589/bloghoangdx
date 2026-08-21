@@ -7,6 +7,33 @@ nav_order: 10
 nav_group: "Misc"
 ---
 
+- [2 câu hỏi về thuật toán tìm Primitive Root modulo P](#2-câu-hỏi-về-thuật-toán-tìm-primitive-root-modulo-p)
+  - [1. Định nghĩa và ký hiệu](#1-định-nghĩa-và-ký-hiệu)
+    - [1.1. Bậc của một số nguyên theo modulo $P$](#11-bậc-của-một-số-nguyên-theo-modulo-p)
+    - [1.2. Căn nguyên thủy](#12-căn-nguyên-thủy)
+    - [1.3. Ký hiệu chung](#13-ký-hiệu-chung)
+  - [2. Vấn đề đặt ra](#2-vấn-đề-đặt-ra)
+  - [3. Thuật toán tìm căn nguyên thủy modulo $P$](#3-thuật-toán-tìm-căn-nguyên-thủy-modulo-p)
+    - [3.1. Mô tả thuật toán](#31-mô-tả-thuật-toán)
+    - [3.2. Mã giả](#32-mã-giả)
+  - [4. Hai câu hỏi nảy sinh khi phân tích thuật toán](#4-hai-câu-hỏi-nảy-sinh-khi-phân-tích-thuật-toán)
+  - [5. Các bổ đề](#5-các-bổ-đề)
+    - [5.1. Bổ đề 1](#51-bổ-đề-1)
+      - [Hệ quả 1](#hệ-quả-1)
+    - [5.2. Bổ đề 2](#52-bổ-đề-2)
+  - [6. Định lý chính](#6-định-lý-chính)
+    - [6.1. Định lý 1](#61-định-lý-1)
+      - [Hệ quả 2 — Trả lời câu hỏi thứ nhất: Tại sao chỉ cần xét các $p\_i \\in C$?](#hệ-quả-2--trả-lời-câu-hỏi-thứ-nhất-tại-sao-chỉ-cần-xét-các-p_i-in-c)
+  - [7. Trả lời câu hỏi thứ hai: vì sao là $g^{(P-1)/p\_i}$ chứ không phải $g^{p\_i}$?](#7-trả-lời-câu-hỏi-thứ-hai-vì-sao-là-gp-1p_i-chứ-không-phải-gp_i)
+    - [7.1. Test đang thực sự kiểm tra điều gì?](#71-test-đang-thực-sự-kiểm-tra-điều-gì)
+    - [7.2. Vì sao ${p\_i}$ không phải là "bẫy" tốt](#72-vì-sao-p_i-không-phải-là-bẫy-tốt)
+    - [7.3. Vì sao ${(P-1)/p\_i}$ lại là "bẫy" đúng](#73-vì-sao-p-1p_i-lại-là-bẫy-đúng)
+  - [8. Brute force đến giá trị $g$ nào thì dừng?](#8-brute-force-đến-giá-trị-g-nào-thì-dừng)
+  - [9. Một vài fun fact](#9-một-vài-fun-fact)
+    - [9.1. Số lượng căn nguyên thủy của một nhóm cyclic](#91-số-lượng-căn-nguyên-thủy-của-một-nhóm-cyclic)
+    - [9.2. Không phải số nào cũng có căn nguyên thủy — vì không phải nhóm nào cũng cyclic](#92-không-phải-số-nào-cũng-có-căn-nguyên-thủy--vì-không-phải-nhóm-nào-cũng-cyclic)
+
+
 # 2 câu hỏi về thuật toán tìm Primitive Root modulo P
 
 ## 1. Định nghĩa và ký hiệu
@@ -391,11 +418,9 @@ Một nhóm được gọi là **cyclic** nếu tồn tại một phần tử $g
 
 Khi $\text{ord}(g) = P-1$ (bậc của nhóm $(\mathbb{Z}/P\mathbb{Z})^{\ast}$), thì $\{g^0,\dots,g^{P-2}\}$ quét hết toàn bộ nhóm — nói cách khác, **"căn nguyên thủy" chính là tên gọi khác của "generator"** khi nhóm đang xét là $(\mathbb{Z}/P\mathbb{Z})^{\ast}$.
 
-**Số lượng generator của một nhóm cyclic**
+### 9.1. Số lượng căn nguyên thủy của một nhóm cyclic
 
 Có một định lý (không chứng minh ở đây, xin nhận là sự thật): nếu một nhóm cyclic có bậc $m$, thì số lượng generator của nó luôn là $\varphi(m)$.
-
-**Số lượng căn nguyên thủy: tổng quát là $\varphi(m)$**
 
 Áp dụng định lý trên cho nhóm $(\mathbb{Z}/n\mathbb{Z})^*$: nhóm này có bậc $m = \varphi(n)$, nên (khi nó là cyclic) số generator là:
 
@@ -413,7 +438,7 @@ Kiểm tra trực tiếp: $(\mathbb{Z}/9\mathbb{Z})^* = \\{1,2,4,5,7,8\\}$. Tín
 
 $$\varphi(\varphi(P)) = \varphi(P-1)$$
 
-**Không phải số nào cũng có căn nguyên thủy — vì không phải nhóm nào cũng cyclic**
+### 9.2. Không phải số nào cũng có căn nguyên thủy — vì không phải nhóm nào cũng cyclic
 
 Với modulo $n$ bất kỳ, nhóm $(\mathbb{Z}/n\mathbb{Z})^{\ast}$ **không phải lúc nào cũng cyclic** — tức không phải lúc nào cũng có generator.
 
