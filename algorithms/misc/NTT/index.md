@@ -402,15 +402,15 @@ Với ví dụ $P=41$ dùng xuyên suốt bài: $\varphi(40) = \varphi(2^3)\cdot
 
 Trước khi nói tới các tính chất của số lượng căn nguyên thủy theo một modulo, ta cần một khái niệm nền:
 
-Xét tập $(\mathbb{Z}/n\mathbb{Z})^* = \\{x \in [1,n] : \gcd(x,n)=1\\}$ — tức tập các số khả nghịch modulo $n$. Tập này cùng phép nhân modulo $n$ tạo thành một **nhóm** (group): có phần tử đơn vị (số 1), phép nhân kết hợp được, và mọi phần tử đều có nghịch đảo (theo Định lý Bézout — không trình bày chi tiết ở đây).
+Xét tập $(\mathbb{Z}/n\mathbb{Z})^{\ast} = \\{x \in [1,n] : \gcd(x,n)=1\\}$ — tức tập các số khả nghịch modulo $n$. Tập này cùng phép nhân modulo $n$ tạo thành một **nhóm** (group): có phần tử đơn vị (số 1), phép nhân kết hợp được, và mọi phần tử đều có nghịch đảo (theo Định lý Bézout — không trình bày chi tiết ở đây).
 
 **Bậc của nhóm** (order of the group) đơn giản là *số lượng phần tử* trong nhóm đó. Theo định nghĩa của hàm **Euler's totient** $\varphi(n)$ (hàm đếm số nguyên trong $[1,n]$ coprime với $n$), ta có ngay:
 
-$$\text{bậc của nhóm } (\mathbb{Z}/n\mathbb{Z})^* = \varphi(n)$$
+$$\text{bậc của nhóm } (\mathbb{Z}/n\mathbb{Z})^{\ast} = \varphi(n)$$
 
-Ví dụ với $n=9$: $(\mathbb{Z}/9\mathbb{Z})^* = \{1,2,4,5,7,8\}$, có 6 phần tử → bậc của nhóm là $\varphi(9)=6$.
+Ví dụ với $n=9$: $(\mathbb{Z}/9\mathbb{Z})^{\ast} = \\{1,2,4,5,7,8\\}$, có 6 phần tử → bậc của nhóm là $\varphi(9)=6$.
 
-Lưu ý: "bậc của nhóm" và "$\text{ord}(g)$" (bậc của một phần tử $g$, đã định nghĩa ở mục 1.1) là hai khái niệm khác nhau — nhưng có liên hệ chặt: $\text{ord}(g)$ luôn là ước của bậc nhóm (đây chính là bản chất tổng quát của Hệ quả 1, vốn chỉ là trường hợp riêng khi nhóm là $(\mathbb{Z}/P\mathbb{Z})^*$).
+Lưu ý: "bậc của nhóm" và "$\text{ord}(g)$" (bậc của một phần tử $g$, đã định nghĩa ở mục 1.1) là hai khái niệm khác nhau — nhưng có liên hệ chặt: $\text{ord}(g)$ luôn là ước của bậc nhóm (đây chính là bản chất tổng quát của Hệ quả 1, vốn chỉ là trường hợp riêng khi nhóm là $(\mathbb{Z}/P\mathbb{Z})^{\ast}$).
 
 **Nhóm cyclic và generator**
 
@@ -422,17 +422,17 @@ Khi $\text{ord}(g) = P-1$ (bậc của nhóm $(\mathbb{Z}/P\mathbb{Z})^{\ast}$),
 
 Có một định lý (không chứng minh ở đây, xin nhận là sự thật): nếu một nhóm cyclic có bậc $m$, thì số lượng generator của nó luôn là $\varphi(m)$.
 
-Áp dụng định lý trên cho nhóm $(\mathbb{Z}/n\mathbb{Z})^*$: nhóm này có bậc $m = \varphi(n)$, nên (khi nó là cyclic) số generator là:
+Áp dụng định lý trên cho nhóm $(\mathbb{Z}/n\mathbb{Z})^{\ast}$: nhóm này có bậc $m = \varphi(n)$, nên (khi nó là cyclic) số generator là:
 
 $$\text{số căn nguyên thủy modulo } n = \varphi(\varphi(n))$$
 
 **Ví dụ minh họa:**
 
-Với $n=9$:
+Với $n=18$:
 
-$$\varphi(9) = 6 \quad\Rightarrow\quad \varphi(\varphi(9)) = \varphi(6) = 2$$
+$$\varphi(18) = 6 \quad\Rightarrow\quad \varphi(\varphi(18)) = \varphi(6) = 2$$
 
-Kiểm tra trực tiếp: $(\mathbb{Z}/9\mathbb{Z})^* = \\{1,2,4,5,7,8\\}$. Tính tay sẽ thấy $\text{ord}(2)=6$ và $\text{ord}(5)=6$ — đúng bằng bậc nhóm $\varphi(9)=6$, nên $2$ và $5$ là hai căn nguyên thủy duy nhất.
+Kiểm tra trực tiếp: $(\mathbb{Z}/18\mathbb{Z})^{\ast} = \\{1,5,7,11,13,17\\}$. Tính tay sẽ thấy $\text{ord}(5)=6$ và $\text{ord}(11)=6$ — đúng bằng bậc nhóm $\varphi(18)=6$, nên $5$ và $11$ là hai căn nguyên thủy duy nhất.
 
 **Trường hợp riêng $n=P$ nguyên tố:** vì mọi số từ $1$ đến $P-1$ đều coprime với $P$, nên $\varphi(P) = P-1$. Thay vào công thức tổng quát:
 
