@@ -140,7 +140,7 @@ Chả hạn, với $P=41$, ta không biết rằng liệu $g=7$ có phải là c
 &emsp;&emsp;&emsp;&emsp;7.&ensp;$\textit{isPrimitive} \leftarrow \text{false}$  
 &emsp;&emsp;&emsp;&emsp;8.&ensp;**break**  
 &emsp;&emsp;9.&ensp;**if** $\textit{isPrimitive}$ **then**  
-&emsp;&emsp;&emsp;10.&ensp;**return** $g$
+&emsp;&emsp;&emsp;10.&ensp;**return** $g$ &emsp;*(Chắc chắn tồn tại $g$ khi $P$ nguyên tố)*
 
 **procedure** $\text{FactorizeDistinctPrimes}(N)$:  
 &emsp;1.&ensp;$C \leftarrow \varnothing$  
@@ -376,7 +376,7 @@ $$\forall\, p_i \in C: g^{N/p_i} \not\equiv 1 \!\!\pmod P \;\Rightarrow\; d = N$
 
 Trên thực tế, mật độ căn nguyên thủy trong khoảng $[2, P-1]$ khá cao ($\varphi(P-1)/(P-1)$), nên thường **không mất nhiều thời gian** để tìm được $g$ đầu tiên thỏa mãn. $g$ sẽ "lộ diện" khá nhanh khi duyệt tuần tự.
 
-Với ví dụ $P=41$ dùng xuyên suốt bài: $\varphi(40) = \varphi(2^3)\cdot\varphi(5) = 4 \times 4 = 16$, tức có 16 căn nguyên thủy trong khoảng $[1,40]$ — mật độ $16/40 = 40\%$. Thực tế $g=2$ trượt (không phải căn nguyên thủy) nhưng chỉ cần thử tiếp vài giá trị là gặp ngay $g=6$.
+Với ví dụ $P=41$ dùng xuyên suốt bài: $\varphi(40) = \varphi(2^3)\cdot\varphi(5) = 4 \times 4 = 16$, tức có 16 căn nguyên thủy trong khoảng $[2,40]$ — mật độ $16/39 = 41\%$. Thực tế $g=2$ trượt (không phải căn nguyên thủy) nhưng chỉ cần thử tiếp vài giá trị là gặp ngay $g=6$.
 
 ---
 
@@ -386,7 +386,7 @@ Với ví dụ $P=41$ dùng xuyên suốt bài: $\varphi(40) = \varphi(2^3)\cdot
 
 Trước khi nói tới các tính chất của số lượng căn nguyên thủy theo một modulo, ta cần một khái niệm nền:
 
-Xét tập $(\mathbb{Z}/n\mathbb{Z})^{\ast} = \\{x \in [1,n] : \gcd(x,n)=1\\}$ — tức tập các số khả nghịch modulo $n$. Tập này cùng phép nhân modulo $n$ tạo thành một **nhóm** (group): có phần tử đơn vị (số 1), phép nhân kết hợp được, và mọi phần tử đều có nghịch đảo (theo Định lý Bézout — không trình bày chi tiết ở đây).
+Xét tập $(\mathbb{Z}/n\mathbb{Z})^{\ast} = \\{x \in [1,n] : \gcd(x,n)=1\\}$, tức tập các số khả nghịch modulo $n$. Tập này cùng phép nhân modulo $n$ tạo thành một **nhóm** (group): có phần tử đơn vị (số 1), phép nhân kết hợp được, và mọi phần tử đều có nghịch đảo (theo Định lý Bézout, không trình bày chi tiết ở đây).
 
 **Bậc của nhóm** (order of the group) đơn giản là *số lượng phần tử* trong nhóm đó. Theo định nghĩa của hàm **Euler's totient** $\varphi(n)$ (hàm đếm số nguyên trong $[1,n]$ coprime với $n$), ta có ngay:
 
