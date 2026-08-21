@@ -20,8 +20,8 @@ nav_group: "Misc"
 - [4. Hai câu hỏi nảy sinh khi phân tích thuật toán](#4-hai-câu-hỏi-nảy-sinh-khi-phân-tích-thuật-toán)
 - [5. Các bổ đề](#5-các-bổ-đề)
   - [5.1. Bổ đề 1](#51-bổ-đề-1)
-    - [Hệ quả 1](#hệ-quả-1)
-  - [5.2. Bổ đề 2](#52-bổ-đề-2)
+  - [5.2. Hệ quả 1](#52-hệ-quả-1)
+  - [5.3. Bổ đề 2](#53-bổ-đề-2)
 - [6. Định lý chính](#6-định-lý-chính)
 - [7. Trả lời câu hỏi thứ nhất: vì sao chỉ cần xét các $p\_i \\in C$?](#7-trả-lời-câu-hỏi-thứ-nhất-vì-sao-chỉ-cần-xét-các-p_i-in-c)
 - [8. Trả lời câu hỏi thứ hai: vì sao là $g^{(P-1)/p\_i}$ chứ không phải $g^{p\_i}$?](#8-trả-lời-câu-hỏi-thứ-hai-vì-sao-là-gp-1p_i-chứ-không-phải-gp_i)
@@ -34,9 +34,10 @@ nav_group: "Misc"
   - [10.2. Không phải modulo nào cũng có căn nguyên thủy](#102-không-phải-modulo-nào-cũng-có-căn-nguyên-thủy)
 
 
-## 1. Định nghĩa và ký hiệu
 
-### 1.1. Bậc của một số nguyên theo modulo $P$
+# 1. Định nghĩa và ký hiệu
+
+## 1.1. Bậc của một số nguyên theo modulo $P$
 
 Cho trước:
 
@@ -61,7 +62,7 @@ $$\text{ord}(g) = \min S$$
 
 tức là số nguyên dương nhỏ nhất sao cho $g^{\text{ord}(g)} \equiv 1 \pmod{P}$.
 
-### 1.2. Căn nguyên thủy
+## 1.2. Căn nguyên thủy
 
 **Định nghĩa:** $g$ được gọi là **căn nguyên thủy** modulo $P$ nếu
 
@@ -89,16 +90,17 @@ Vậy giả sử sai, tức là $g^0, g^1, \dots, g^{P-2}$ đôi một phân bi�
 
 Có $P-1$ giá trị phân biệt nằm trong một tập đúng $P-1$ phần tử, nên $\\{g^0, g^1, \dots, g^{P-2}\\} \equiv \\{1, 2, \dots, P-1\\} \pmod P$. $\blacksquare$
 
-### 1.3. Ký hiệu chung
+## 1.3. Ký hiệu chung
 
-Ta định nghĩa $C = \{p_1, p_2, \dots, p_k \}$: tập các ước nguyên tố phân biệt của $P-1$
+Ta định nghĩa $C = \\{p_1, p_2, \dots, p_k \\}$: tập các ước nguyên tố phân biệt của $P-1$
 
-> Để mọi ví dụ trong bài đều liên kết được với nhau, ta cố định $P = 41$. Khi đó $P - 1 = 40 = 2^3 \cdot 5$, nên tập ước nguyên tố là $C = \\{2, 5\\}$, và hai "điểm kiểm tra" cần tính trong thuật toán là
-> $$\frac{P-1}{2} = 20 \qquad \text{và} \qquad \frac{P-1}{5} = 8$$
+Để mọi ví dụ trong bài đều liên kết được với nhau, ta cố định $P = 41$. Khi đó $P - 1 = 40 = 2^3 \cdot 5$, nên tập ước nguyên tố là $C = \\{2, 5\\}$, và hai "điểm kiểm tra" cần tính trong thuật toán là
+
+$$\frac{P-1}{2} = 20 \qquad \text{và} \qquad \frac{P-1}{5} = 8$$
 
 ---
 
-## 2. Vấn đề đặt ra
+# 2. Vấn đề đặt ra
 
 Khi ta có một số nguyên tố $P$, ta không hề biết số $g$ nào là **căn nguyên thủy** modulo $P$ cả.
 
@@ -108,9 +110,9 @@ Chả hạn, với $P=41$, ta không biết rằng liệu $g=7$ có phải là c
 
 ---
 
-## 3. Thuật toán tìm căn nguyên thủy modulo $P$
+# 3. Thuật toán tìm căn nguyên thủy modulo $P$
 
-### 3.1. Mô tả thuật toán
+## 3.1. Mô tả thuật toán
 
 Đi thử **brute force** các giá trị $g = 2, 3, 4, \dots, P-1$.
 
@@ -122,15 +124,12 @@ Chả hạn, với $P=41$, ta không biết rằng liệu $g=7$ có phải là c
 > Nếu không có $p_i \in C$ nào thỏa điều kiện trên → $g$ **là** căn nguyên thủy cần tìm.
 
 
-### 3.2. Mã giả
----
+## 3.2. Mã giả
 
-> **Input:** $P$ — số nguyên tố
-> 
-> **Output:** $g$ — một căn nguyên thủy của $P$ (tức $\text{ord}(g) = P-1$)
- 
----
- 
+**Input:** $P$ — số nguyên tố
+
+**Output:** $g$ — một căn nguyên thủy của $P$ (tức $\text{ord}(g) = P-1$)
+  
 **procedure** $\text{FindPrimitiveRoot}(P)$:  
 &emsp;1.&ensp;$N \leftarrow P - 1$  
 &emsp;2.&ensp;$C \leftarrow \text{FactorizeDistinctPrimes}(N)$ &emsp;*(tập ước nguyên tố phân biệt của $N$)*  
@@ -142,8 +141,6 @@ Chả hạn, với $P=41$, ta không biết rằng liệu $g=7$ có phải là c
 &emsp;&emsp;&emsp;&emsp;8.&ensp;**break**  
 &emsp;&emsp;9.&ensp;**if** $\textit{isPrimitive}$ **then**  
 &emsp;&emsp;&emsp;10.&ensp;**return** $g$
-
----
 
 **procedure** $\text{FactorizeDistinctPrimes}(N)$:  
 &emsp;1.&ensp;$C \leftarrow \varnothing$  
@@ -158,7 +155,7 @@ Chả hạn, với $P=41$, ta không biết rằng liệu $g=7$ có phải là c
  
 ---
 
-## 4. Hai câu hỏi nảy sinh khi phân tích thuật toán
+# 4. Hai câu hỏi nảy sinh khi phân tích thuật toán
 
 1. Tại sao chỉ cần xét các $p_i \in C$ để kiểm tra $g^{(P-1)/p_i} \bmod P \overset{?}{=} 1$, mà không cần $p_i p_j$, $p_i^2,\dots$ hay các ước khác của $P-1$?
 2. Tại sao giá trị cần xét là $g^{(P-1)/p_i}$ mà không phải $g^{p_i} \bmod P$?
@@ -167,9 +164,9 @@ Ta sẽ chứng minh toán học để trả lời cả hai.
 
 ---
 
-## 5. Các bổ đề
+# 5. Các bổ đề
 
-### 5.1. Bổ đề 1
+## 5.1. Bổ đề 1
 
 $$g^m \bmod P = 1 \iff \text{ord}(g) \mid m$$
 
@@ -194,7 +191,7 @@ Với $P=41$, lấy $g=2$. Tính tay ta được $\text{ord}(2) = 20$ (không c�
 
 Kiểm tra trực tiếp: $2^8 = 256 = 6 \times 41 + 10 \equiv 10 \pmod{41}$ — đúng là khác 1, khớp với dự đoán. ✓
 
-#### Hệ quả 1
+## 5.2. Hệ quả 1
 
 Với $m = P - 1$, theo định lý Fermat nhỏ: $g^{P-1} \equiv 1 \pmod P$.
 
@@ -214,9 +211,9 @@ Vậy dù $g=3$ (không phải căn nguyên thủy) hay $g=6$ (là căn nguyên 
 
 Điều Hệ quả 1 **không** cho biết là $\text{ord}(g)$ cụ thể bằng bao nhiêu trong các ước của $P-1$, mà mới chỉ cho chúng ta biết $\text{ord}(g) \mid (P-1)$ mà thôi.
 
-### 5.2. Bổ đề 2
+## 5.3. Bổ đề 2
 
-> Mọi ước thực sự của $P-1$ đều là ước của ít nhất một trong các số $(P-1)/p_i$ với $p_i \in C$.
+$$ \text{Mọi ước thực sự của} ~P-1~ \text{đều là ước của ít nhất một trong các số} ~(P-1)/p_i~ \text{với} ~p_i \in C~ $$ 
 
 **Chứng minh:** Gọi $N = P-1$, và $v$ là một ước thực sự của $N$ ($v \neq N$, $v \mid N$).
 
@@ -240,9 +237,9 @@ Vậy $v$ là ước của $N/q$, với $q \in C$. $\blacksquare$
 
 ---
 
-## 6. Định lý chính
+# 6. Định lý chính
 
-> $$g \text{ là căn nguyên thủy} \iff \forall p_i \in C: \; g^{(P-1)/p_i} \bmod P \neq 1$$
+$$g \text{ là căn nguyên thủy} \iff \forall p_i \in C: \; g^{(P-1)/p_i} \bmod P \neq 1$$
 
 **Chứng minh:** Đặt $d = \text{ord}(g)$.
 
@@ -294,7 +291,9 @@ $$6^{20} = 6^8 \cdot 6^8 \cdot 6^4 \equiv 10 \cdot 10 \cdot 25 = 2500 \equiv 40 
 
 → Cả hai điểm kiểm tra đều cho thấy $g^{20} \bmod P \neq 1$ và $g^8 \bmod P \neq 1$, nên **$g=6$ là căn nguyên thủy** modulo $P=41$, tức $\text{ord}(6) = 40$.
 
-## 7. Trả lời câu hỏi thứ nhất: vì sao chỉ cần xét các $p_i \in C$?
+---
+
+# 7. Trả lời câu hỏi thứ nhất: vì sao chỉ cần xét các $p_i \in C$?
 
 Như vậy theo định lý trên: Nếu $\text{ord}(g)$ có "khuyết tật" (tức $\text{ord}(g) < P-1$ và $g$ không phải là căn nguyên thủy), thì **chắc chắn** tồn tại ít nhất một ước nguyên tố $q \in C$ làm lộ khuyết tật đó:
 
@@ -312,15 +311,15 @@ $$2^{(40/2)} = 2^{20} \equiv 1 \pmod P$$
 
 ---
 
-## 8. Trả lời câu hỏi thứ hai: vì sao là $g^{(P-1)/p_i}$ chứ không phải $g^{p_i}$?
+# 8. Trả lời câu hỏi thứ hai: vì sao là $g^{(P-1)/p_i}$ chứ không phải $g^{p_i}$?
 
-### 8.1. Test đang thực sự kiểm tra điều gì?
+## 8.1. Test đang thực sự kiểm tra điều gì?
 
 Với số nguyên dương $g$ bất kì, $\text{ord}(g) \mid P-1$ theo hệ quả 1, nên $\text{ord}(g) \ne P-1$ khi và chỉ khi $\text{ord}(g)$ là **ước thực sự** của $P-1$.
 
 Vậy chiến lược đúng là: liệt kê ra một tập số $X$ sao cho *bất kỳ ước thực sự $u$ nào* của $P-1$ cũng "mắc bẫy" ít nhất một số trong tập $X$, tức $u$ là ước của ít nhất một số thuộc tập $X$. Nếu $\text{ord}(g)$ không "mắc bẫy" số nào thuộc tập $X$, thì $\text{ord}(g)$ chỉ còn một khả năng: đúng bằng $P-1$.
 
-### 8.2. Vì sao $\{p_i\}$ không phải là "bẫy" tốt
+## 8.2. Vì sao $\{p_i\}$ không phải là "bẫy" tốt
 
 Nếu ta kiểm tra $g^{p_i} \overset{?}{\equiv} 1$, theo Bổ đề 1 điều này tương đương với hỏi $\text{ord}(g) \mid p_i$ hay không. Vì $p_i$ là số nguyên tố, ước của nó chỉ có $1$ và $p_i$. Nói cách khác, phép kiểm tra này **chỉ bẫy được** hai giá trị rất nhỏ: $\text{ord}(g) = 1$ hoặc $\text{ord}(g) = p_i$.
 
@@ -336,11 +335,11 @@ $$2^2 = 4 \neq 1 \pmod P, \qquad 2^5 = 32 \neq 1 \pmod P$$
 
 → Test sai này **không loại được** $g=2$ ở bất kỳ $p_i \in \\{2,5\\}$ nào, dẫn tới kết luận **nhầm** rằng $2$ là căn nguyên thủy, trong khi thực tế $g=2$ **không phải** căn nguyên thủy. 
 
-### 8.3. Vì sao $\{(P-1)/p_i\}$ lại là "bẫy" đúng
+## 8.3. Vì sao $\{(P-1)/p_i\}$ lại là "bẫy" đúng
 
 Tập $\{(P-1)/p_i\}$ chính là tập các **ước thực sự lớn nhất** (maximal proper divisors) của $N = P-1$. Có một sự thật số học đơn giản:
 
-> Với mọi ước thực sự $u$ của $N$, luôn tồn tại một ước nguyên tố $p_i$ của $N$ sao cho $u \mid N/p_i$.
+$$ \text{Với mọi ước thực sự} ~u~ \text{của} ~N~, \text{luôn tồn tại một ước nguyên tố} ~p_i~ \text{của} ~N~ \text{sao cho} ~u \mid N/p_i~ $$.
 
 *(Đây thực chất chính là Bổ đề 2 đã chứng minh và minh họa ở mục 5 — được nhắc lại ở đây vì nó là chốt chặn cho toàn bộ lập luận của mục này.)*
 
@@ -348,7 +347,7 @@ Nói cách khác: **mọi** ước thực sự của $P-1$, dù nhỏ hay lớn,
 
 **Tóm gọn:**
 
-| Tập kiểm tra | Bẫy được ord(g) nào? | Đủ để suy ra ord(g) = P−1? |
+| Tập kiểm tra | Bẫy được $\text{ord(g)}$ nào? | Đủ để suy ra $\text{ord(g)} = P−1$? |
 |--------------| ---------------------|----------------------------|
 | $\\{p_i\\}$ | Chỉ $1$ và $p_i$ | ❌ Không |
 | $\\{(P-1)/p_i\\}$ | Mọi ước thực sự của $P-1$ | ✅ Có |
@@ -373,7 +372,7 @@ $$\forall\, p_i \in C: g^{N/p_i} \not\equiv 1 \!\!\pmod P \;\Rightarrow\; d = N$
 
 ---
 
-## 9. Brute force đến giá trị $g$ nào thì dừng?
+# 9. Brute force đến giá trị $g$ nào thì dừng?
 
 Trên thực tế, mật độ căn nguyên thủy trong khoảng $[2, P-1]$ khá cao ($\varphi(P-1)/(P-1)$), nên thường **không mất nhiều thời gian** để tìm được $g$ đầu tiên thỏa mãn. $g$ sẽ "lộ diện" khá nhanh khi duyệt tuần tự.
 
@@ -381,7 +380,7 @@ Với ví dụ $P=41$ dùng xuyên suốt bài: $\varphi(40) = \varphi(2^3)\cdot
 
 ---
 
-## 10. Một vài fun fact
+# 10. Một vài fun fact
 
 **Bậc của nhóm là gì?**
 
@@ -403,7 +402,7 @@ Một nhóm được gọi là **cyclic** nếu tồn tại một phần tử $g
 
 Khi $\text{ord}(g) = P-1$ (bậc của nhóm $(\mathbb{Z}/P\mathbb{Z})^{\ast}$), thì $\{g^0,\dots,g^{P-2}\}$ quét hết toàn bộ nhóm — nói cách khác, **"căn nguyên thủy" chính là tên gọi khác của "generator"** khi nhóm đang xét là $(\mathbb{Z}/P\mathbb{Z})^{\ast}$.
 
-### 10.1. Số lượng căn nguyên thủy của một nhóm cyclic
+## 10.1. Số lượng căn nguyên thủy của một nhóm cyclic
 
 Có một định lý (không chứng minh ở đây, xin nhận là sự thật): nếu một nhóm cyclic có bậc $m$, thì số lượng generator của nó luôn là $\varphi(m)$.
 
@@ -417,13 +416,13 @@ Với $n=18$:
 
 $$\varphi(18) = 6 \quad\Rightarrow\quad \varphi(\varphi(18)) = \varphi(6) = 2$$
 
-Kiểm tra trực tiếp: $(\mathbb{Z}/18\mathbb{Z})^{\ast} = \{1,5,7,11,13,17\}$. Tính tay sẽ thấy $\text{ord}(5)=6$ và $\text{ord}(11)=6$ — đúng bằng bậc nhóm $\varphi(18)=6$, nên $5$ và $11$ là hai căn nguyên thủy duy nhất.
+Kiểm tra trực tiếp: $(\mathbb{Z}/18\mathbb{Z})^{\ast} = \\{1,5,7,11,13,17\\}$. Tính tay sẽ thấy $\text{ord}(5)=6$ và $\text{ord}(11)=6$ — đúng bằng bậc nhóm $\varphi(18)=6$, nên $5$ và $11$ là hai căn nguyên thủy duy nhất.
 
 **Trường hợp riêng $n=P$ nguyên tố:** vì mọi số từ $1$ đến $P-1$ đều coprime với $P$, nên $\varphi(P) = P-1$. Thay vào công thức tổng quát:
 
 $$\varphi(\varphi(P)) = \varphi(P-1)$$
 
-### 10.2. Không phải modulo nào cũng có căn nguyên thủy
+## 10.2. Không phải modulo nào cũng có căn nguyên thủy
 
 Với modulo $n$ bất kỳ, nhóm $(\mathbb{Z}/n\mathbb{Z})^{\ast}$ **không phải lúc nào cũng cyclic**, tức không phải lúc nào cũng có generator.
 
