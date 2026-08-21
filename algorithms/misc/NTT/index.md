@@ -91,7 +91,7 @@ Có $P-1$ giá trị phân biệt nằm trong một tập đúng $P-1$ phần t�
 
 ### 1.3. Ký hiệu chung
 
-Ta định nghĩa $C = \{p_1, p_2, \dots, p_k\}$: tập các ước nguyên tố phân biệt của $P-1$
+Ta định nghĩa $C = \{p_1, p_2, \dots, p_k \}$: tập các ước nguyên tố phân biệt của $P-1$
 
 > Để mọi ví dụ trong bài đều liên kết được với nhau, ta cố định $P = 41$. Khi đó $P - 1 = 40 = 2^3 \cdot 5$, nên tập ước nguyên tố là $C = \\{2, 5\\}$, và hai "điểm kiểm tra" cần tính trong thuật toán là
 > $$\frac{P-1}{2} = 20 \qquad \text{và} \qquad \frac{P-1}{5} = 8$$
