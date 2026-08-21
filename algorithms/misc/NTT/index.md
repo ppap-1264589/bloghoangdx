@@ -9,6 +9,7 @@ nav_group: "Misc"
 
 # 2 câu hỏi về thuật toán tìm Primitive Root modulo P
 
+
 - [2 câu hỏi về thuật toán tìm Primitive Root modulo P](#2-câu-hỏi-về-thuật-toán-tìm-primitive-root-modulo-p)
   - [1. Định nghĩa và ký hiệu](#1-định-nghĩa-và-ký-hiệu)
     - [1.1. Bậc của một số nguyên theo modulo $P$](#11-bậc-của-một-số-nguyên-theo-modulo-p)
@@ -24,16 +25,15 @@ nav_group: "Misc"
       - [Hệ quả 1](#hệ-quả-1)
     - [5.2. Bổ đề 2](#52-bổ-đề-2)
   - [6. Định lý chính](#6-định-lý-chính)
-    - [6.1. Định lý 1](#61-định-lý-1)
-      - [Hệ quả 2 — Trả lời câu hỏi thứ nhất: Tại sao chỉ cần xét các $p\_i \\in C$?](#hệ-quả-2--trả-lời-câu-hỏi-thứ-nhất-tại-sao-chỉ-cần-xét-các-p_i-in-c)
-  - [7. Trả lời câu hỏi thứ hai: vì sao là $g^{(P-1)/p\_i}$ chứ không phải $g^{p\_i}$?](#7-trả-lời-câu-hỏi-thứ-hai-vì-sao-là-gp-1p_i-chứ-không-phải-gp_i)
-    - [7.1. Test đang thực sự kiểm tra điều gì?](#71-test-đang-thực-sự-kiểm-tra-điều-gì)
-    - [7.2. Vì sao ${p\_i}$ không phải là "bẫy" tốt](#72-vì-sao-p_i-không-phải-là-bẫy-tốt)
-    - [7.3. Vì sao ${(P-1)/p\_i}$ lại là "bẫy" đúng](#73-vì-sao-p-1p_i-lại-là-bẫy-đúng)
-  - [8. Brute force đến giá trị $g$ nào thì dừng?](#8-brute-force-đến-giá-trị-g-nào-thì-dừng)
-  - [9. Một vài fun fact](#9-một-vài-fun-fact)
-    - [9.1. Số lượng căn nguyên thủy của một nhóm cyclic](#91-số-lượng-căn-nguyên-thủy-của-một-nhóm-cyclic)
-    - [9.2. Không phải số nào cũng có căn nguyên thủy — vì không phải nhóm nào cũng cyclic](#92-không-phải-số-nào-cũng-có-căn-nguyên-thủy--vì-không-phải-nhóm-nào-cũng-cyclic)
+  - [7. Trả lời câu hỏi thứ nhất: vì sao chỉ cần xét các $p\_i \\in C$?](#7-trả-lời-câu-hỏi-thứ-nhất-vì-sao-chỉ-cần-xét-các-p_i-in-c)
+  - [8. Trả lời câu hỏi thứ hai: vì sao là $g^{(P-1)/p\_i}$ chứ không phải $g^{p\_i}$?](#8-trả-lời-câu-hỏi-thứ-hai-vì-sao-là-gp-1p_i-chứ-không-phải-gp_i)
+    - [8.1. Test đang thực sự kiểm tra điều gì?](#81-test-đang-thực-sự-kiểm-tra-điều-gì)
+    - [8.2. Vì sao ${p\_i}$ không phải là "bẫy" tốt](#82-vì-sao-p_i-không-phải-là-bẫy-tốt)
+    - [8.3. Vì sao ${(P-1)/p\_i}$ lại là "bẫy" đúng](#83-vì-sao-p-1p_i-lại-là-bẫy-đúng)
+  - [9. Brute force đến giá trị $g$ nào thì dừng?](#9-brute-force-đến-giá-trị-g-nào-thì-dừng)
+  - [10. Một vài fun fact](#10-một-vài-fun-fact)
+    - [10.1. Số lượng căn nguyên thủy của một nhóm cyclic](#101-số-lượng-căn-nguyên-thủy-của-một-nhóm-cyclic)
+    - [10.2. Không phải số nào cũng có căn nguyên thủy](#102-không-phải-số-nào-cũng-có-căn-nguyên-thủy)
 
 
 ## 1. Định nghĩa và ký hiệu
@@ -259,8 +259,6 @@ Vậy $v$ là ước của $N/q$, với $q \in C$. $\blacksquare$
 
 ## 6. Định lý chính
 
-### 6.1. Định lý 1
-
 > $$g \text{ là căn nguyên thủy} \iff \forall p_i \in C: \; g^{(P-1)/p_i} \bmod P \neq 1$$
 
 **Chứng minh:** Đặt $d = \text{ord}(g)$.
@@ -313,9 +311,9 @@ $$6^{20} = 6^8 \cdot 6^8 \cdot 6^4 \equiv 10 \cdot 10 \cdot 25 = 2500 \equiv 40 
 
 → Cả hai điểm kiểm tra đều cho thấy $g^{20} \bmod P \neq 1$ và $g^8 \bmod P \neq 1$, nên **$g=6$ là căn nguyên thủy** modulo $P=41$, tức $\text{ord}(6) = 40$.
 
-#### Hệ quả 2 — Trả lời câu hỏi thứ nhất: Tại sao chỉ cần xét các $p_i \in C$?
+## 7. Trả lời câu hỏi thứ nhất: vì sao chỉ cần xét các $p_i \in C$?
 
-Nếu $\text{ord}(g)$ có "khuyết tật" (tức $\text{ord}(g) < P-1$), thì **chắc chắn** tồn tại ít nhất một ước nguyên tố $q \in C$ làm lộ khuyết tật đó:
+Như vậy theo hệ quả của Định lý 1: Nếu $\text{ord}(g)$ có "khuyết tật" (tức $\text{ord}(g) < P-1$ và $g$ không phải là căn nguyên thủy), thì **chắc chắn** tồn tại ít nhất một ước nguyên tố $q \in C$ làm lộ khuyết tật đó:
 
 $$g^{(P-1)/q} \equiv 1 \pmod{P}$$
 
@@ -329,15 +327,15 @@ $$2^{(40/2)} = 2^{20} \equiv 1 \pmod P$$
 
 ---
 
-## 7. Trả lời câu hỏi thứ hai: vì sao là $g^{(P-1)/p_i}$ chứ không phải $g^{p_i}$?
+## 8. Trả lời câu hỏi thứ hai: vì sao là $g^{(P-1)/p_i}$ chứ không phải $g^{p_i}$?
 
-### 7.1. Test đang thực sự kiểm tra điều gì?
+### 8.1. Test đang thực sự kiểm tra điều gì?
 
 Với số nguyên dương $g$ bất kì, $\text{ord}(g) \mid P-1$ theo hệ quả 1, nên $\text{ord}(g) \ne P-1$ khi và chỉ khi $\text{ord}(g)$ là **ước thực sự** của $P-1$.
 
 Vậy chiến lược đúng là: liệt kê ra một tập số $X$ sao cho *bất kỳ ước thực sự $u$ nào* của $P-1$ cũng "mắc bẫy" ít nhất một số trong tập $X$, tức $u$ là ước của ít nhất một số thuộc tập $X$. Nếu $\text{ord}(g)$ không "mắc bẫy" số nào thuộc tập $X$, thì $\text{ord}(g)$ chỉ còn một khả năng: đúng bằng $P-1$.
 
-### 7.2. Vì sao $\{p_i\}$ không phải là "bẫy" tốt
+### 8.2. Vì sao $\{p_i\}$ không phải là "bẫy" tốt
 
 Nếu ta kiểm tra $g^{p_i} \overset{?}{\equiv} 1$, theo Bổ đề 1 điều này tương đương với hỏi $\text{ord}(g) \mid p_i$ hay không. Vì $p_i$ là số nguyên tố, ước của nó chỉ có $1$ và $p_i$. Nói cách khác, phép kiểm tra này **chỉ bẫy được** hai giá trị rất nhỏ: $\text{ord}(g) = 1$ hoặc $\text{ord}(g) = p_i$.
 
@@ -351,7 +349,7 @@ $$2^2 = 4 \neq 1 \pmod P, \qquad 2^5 = 32 \neq 1 \pmod P$$
 
 → Test sai này **không loại được** $g=2$ ở bất kỳ $p_i \in \\{2,5\\}$ nào, dẫn tới kết luận **nhầm** rằng $2$ là căn nguyên thủy, trong khi thực tế $g=2$ **không phải** căn nguyên thủy. 
 
-### 7.3. Vì sao $\{(P-1)/p_i\}$ lại là "bẫy" đúng
+### 8.3. Vì sao $\{(P-1)/p_i\}$ lại là "bẫy" đúng
 
 Tập $\{(P-1)/p_i\}$ chính là tập các **ước thực sự lớn nhất** (maximal proper divisors) của $N = P-1$. Có một sự thật số học đơn giản:
 
@@ -388,7 +386,7 @@ $$\forall\, p_i \in C: g^{N/p_i} \not\equiv 1 \!\!\pmod P \;\Rightarrow\; d = N$
 
 ---
 
-## 8. Brute force đến giá trị $g$ nào thì dừng?
+## 9. Brute force đến giá trị $g$ nào thì dừng?
 
 Trên thực tế, mật độ căn nguyên thủy trong khoảng $[2, P-1]$ khá cao ($\varphi(P-1)/(P-1)$), nên thường **không mất nhiều thời gian** để tìm được $g$ đầu tiên thỏa mãn. $g$ sẽ "lộ diện" khá nhanh khi duyệt tuần tự.
 
@@ -396,7 +394,7 @@ Với ví dụ $P=41$ dùng xuyên suốt bài: $\varphi(40) = \varphi(2^3)\cdot
 
 ---
 
-## 9. Một vài fun fact
+## 10. Một vài fun fact
 
 **Bậc của nhóm là gì?**
 
@@ -418,7 +416,7 @@ Một nhóm được gọi là **cyclic** nếu tồn tại một phần tử $g
 
 Khi $\text{ord}(g) = P-1$ (bậc của nhóm $(\mathbb{Z}/P\mathbb{Z})^{\ast}$), thì $\{g^0,\dots,g^{P-2}\}$ quét hết toàn bộ nhóm — nói cách khác, **"căn nguyên thủy" chính là tên gọi khác của "generator"** khi nhóm đang xét là $(\mathbb{Z}/P\mathbb{Z})^{\ast}$.
 
-### 9.1. Số lượng căn nguyên thủy của một nhóm cyclic
+### 10.1. Số lượng căn nguyên thủy của một nhóm cyclic
 
 Có một định lý (không chứng minh ở đây, xin nhận là sự thật): nếu một nhóm cyclic có bậc $m$, thì số lượng generator của nó luôn là $\varphi(m)$.
 
@@ -438,9 +436,9 @@ Kiểm tra trực tiếp: $(\mathbb{Z}/18\mathbb{Z})^{\ast} = \\{1,5,7,11,13,17\
 
 $$\varphi(\varphi(P)) = \varphi(P-1)$$
 
-### 9.2. Không phải số nào cũng có căn nguyên thủy — vì không phải nhóm nào cũng cyclic
+### 10.2. Không phải số nào cũng có căn nguyên thủy
 
-Với modulo $n$ bất kỳ, nhóm $(\mathbb{Z}/n\mathbb{Z})^{\ast}$ **không phải lúc nào cũng cyclic** — tức không phải lúc nào cũng có generator.
+Với modulo $n$ bất kỳ, nhóm $(\mathbb{Z}/n\mathbb{Z})^{\ast}$ **không phải lúc nào cũng cyclic**, tức không phải lúc nào cũng có generator, vì không phải nhóm nào cũng cyclic.
 
 Modulo $n$ có căn nguyên thủy **khi và chỉ khi** $n$ thuộc một trong các dạng:
 
