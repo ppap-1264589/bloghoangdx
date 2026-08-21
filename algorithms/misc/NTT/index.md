@@ -323,7 +323,7 @@ $$g^{(P-1)/q} \equiv 1 \pmod{P}$$
 
 **Ví dụ minh họa:** 
 
-$g=2$ có $\text{ord}(2) = 20$, một "khuyết tật" thực sự (khác $40$). Hệ quả 2 khẳng định có $q \in \\{2,5\\}$ làm lộ khuyết tật này. Thật vậy: với $q=2$: 
+$g=2$ có $\text{ord}(2) = 20$, một "khuyết tật" thực sự (khác $40$). Kết luận trên khẳng định rằng có tồn tại $q \in \\{2,5\\}$ làm lộ khuyết tật này. Thật vậy: với $q=2$: 
 
 $$2^{(40/2)} = 2^{20} \equiv 1 \pmod P$$ 
 
