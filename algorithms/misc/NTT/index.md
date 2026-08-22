@@ -339,7 +339,7 @@ $$2^2 = 4 \neq 1 \pmod P, \qquad 2^5 = 32 \neq 1 \pmod P$$
 
 Tập $\{(P-1)/p_i\}$ chính là tập các **ước thực sự lớn nhất** (maximal proper divisors) của $N = P-1$. Có một sự thật số học đơn giản:
 
-$$ \text{Với mọi ước thực sự} ~u~ \text{của} ~N~, \text{luôn tồn tại một ước nguyên tố} ~p_i~ \text{của} ~N~ \text{sao cho} ~u \mid N/p_i~ $$.
+$$ \text{Với mọi ước thực sự} ~u~ \text{của} ~N~, \text{luôn tồn tại một ước nguyên tố} ~p_i~ \text{của} ~N~ \text{sao cho} ~u \mid N/p_i~ $$
 
 *(Đây thực chất chính là Bổ đề 2 đã chứng minh và minh họa ở mục 5 — được nhắc lại ở đây vì nó là chốt chặn cho toàn bộ lập luận của mục này.)*
 
